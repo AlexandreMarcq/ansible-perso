@@ -1,0 +1,40 @@
+---
+- name: Install custom software
+  hosts: localhost
+  remote_user: root
+
+  tasks:
+    - name: Install bat
+      community.general.pacman:
+        name: bat
+        state: present
+
+    - name: Install git
+      community.general.pacman:
+        name: git
+        state: present
+
+    - name: Install helix
+      community.general.pacman:
+        name: helix
+        state: present
+
+    - name: Install fish
+      community.general.pacman:
+        name: fish
+        state: present
+
+    - name: Install npm
+      community.general.pacman:
+        name: npm
+        state: present
+
+    - name: Install ripgrep
+      community.general.pacman:
+        name: ripgrep
+        state: present
+
+    - name: Install sudo
+      community.general.pacman:
+        name: sudo
+        state: present
