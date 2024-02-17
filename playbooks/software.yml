@@ -9,6 +9,16 @@
         name: bat
         state: present
 
+    - name: Install dolphin
+      community.general.pacman:
+        name: dolphin
+        state: present
+
+    - name: Install gwenview
+      community.general.pacman:
+        name: gwenview
+        state: present
+
     - name: Install helix
       community.general.pacman:
         name: helix
