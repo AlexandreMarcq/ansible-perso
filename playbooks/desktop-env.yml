@@ -1,0 +1,32 @@
+---
+- name: Install desktop environment
+  hosts: localhost
+
+  tasks:
+    - name: Install Wayland
+      community.general.pacman:
+        name: wayland
+        state: present
+
+    - name: Install minimal plasma
+      community.general.pacman:
+        name: plasma-desktop
+        state: present
+
+    - name: Install Wayland support
+      community.general.pacman:
+        name: plasma-workspace,xorg-xwayland,qt5-wayland,glfw-wayland
+        state: present
+
+    - name: Install sddm-git
+      kewlfft.aur.aur:
+        name: sddm-git
+        state: present
+      become: true
+      become_user: aur_builder
+
+    - name: Enable sddm
+      ansible.builtin.systemd:
+        name: sddm
+        enabled: true
+        state: started
