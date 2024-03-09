@@ -34,6 +34,16 @@
         name: npm
         state: present
 
+    - name: Install pipewire
+      community.general.pacman:
+        name: pipewire
+        state: present
+    
+    - name: Install pipewire-audio
+      community.general.pacman:
+        name: pipewire-audio
+        state: present
+
     - name: Install ripgrep
       community.general.pacman:
         name: ripgrep
